@@ -1,10 +1,10 @@
-import { GET_STOCK_PRICE } from '../action';
+import { RECIEVE_STOCK_PRICE } from '../action';
 
-export default (state = "", { type }) => {
+export default (state = "", { type, data }) => {
 
     switch (type) {
-        case 'GET_STOCK_PRICE':
-            return state;
+        case 'RECIEVE_STOCK_PRICE':
+            return data;
         default:
             return state;
 

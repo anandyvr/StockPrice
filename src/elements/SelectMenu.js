@@ -10,7 +10,7 @@ const SelectMenu = ({
   disabled = false
 }) => {
   return (
-    <div class={className}>
+    <div className={className}>
       <select id={id} value={value} style={style} onChange={event} disabled={disabled}>
         <option value="">
           Select one...

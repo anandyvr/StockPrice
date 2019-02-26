@@ -9,9 +9,7 @@ export default () => (
   <Provider store={store}>
     <div className="App">
       <div className="App-header">
-        <p>
           <StockPrize></StockPrize>
-        </p>
       </div>
     </div>
   </Provider>

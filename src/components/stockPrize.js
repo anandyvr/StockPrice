@@ -7,6 +7,7 @@ class StockPrize extends Component {
 
   selectStock = (tgt) =>{
     console.log(tgt.currentTarget.value);
+    
     return;
   }
 
