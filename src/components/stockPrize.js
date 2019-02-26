@@ -8,10 +8,29 @@ import ContentText from '../elements/ContentText';
 import TextElement from '../elements/TextElement';
 
 class StockPrize extends Component {
-  selectStock = (tgt) => {
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      textValue: "",
+      selectValue: ""
+    }
+  }
+  selectStock = tgt => {
+    if (tgt.currentTarget.type === 'select-one') {
+      this.setState({ textValue: "" });
+      this.setState({ selectValue: tgt.currentTarget.value });
+    } else {
+      this.setState({ selectValue: "" });
+    }
     this.props.getStockPrice({ stockId: tgt.currentTarget.value });
     this.props.getStockDescription({ stockId: tgt.currentTarget.value });
     return;
+  }
+
+  textChange = event => {
+    this.setState({ textValue: event.target.value });
   }
 
   render() {
@@ -21,8 +40,8 @@ class StockPrize extends Component {
     const error = this.props.data.stockPrice.error || this.props.data.stockDescription.error;
     return (
       <div>
-        <SelectMenu headtext={"Select a stock symbol"} options={StockList} event={this.selectStock} className={"select-box"} /><span className="seperator">{"OR"}</span>
-        <TextElement className="text-element" headtext={"Enter a stock symbol"} event={this.selectStock} />
+        <SelectMenu headtext={"Select a stock symbol"} options={StockList} event={this.selectStock} className={"select-box"} value={this.state.selectValue} /><span className="seperator">{"OR"}</span>
+        <TextElement className="text-element" headtext={"Enter a stock symbol"} event={this.selectStock} value={this.state.textValue} change={this.textChange} />
         <br />{
           stockPrice ?
             <div>
