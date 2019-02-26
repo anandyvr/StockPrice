@@ -7,10 +7,13 @@ const SelectMenu = ({
   style,
   options,
   event,
+  headtext,
   disabled = false
 }) => {
   return (
     <div className={className}>
+    <div className="headtext">{headtext}</div>
+    <br />
       <select id={id} value={value} style={style} onChange={event} disabled={disabled}>
         <option value="">
           Select one...

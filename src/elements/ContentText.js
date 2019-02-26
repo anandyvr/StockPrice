@@ -1,15 +1,16 @@
 import React from 'react';
 
 const ContentText = ({
-
+  head,
+  text
 }) => {
   return (
     <div>
-      <div>
-        HEAD
+      <div className="head-text">
+        {head}
       </div>
-      <div>
-        BODY
+      <div className="body-text">
+        {text}
       </div>
     </div>
   );
